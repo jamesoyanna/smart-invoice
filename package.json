@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node index.js"
   },
- "proxy": "http://localhost:8000",
+
 
   "keywords": [],
   "author": "james oyanna",

@@ -26,7 +26,7 @@ const app = express()
 dotenv.config()
 
 //New code
-app.use(express.static(path.join(__dirname, "client", "build")));
+//app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use((express.json({ limit: "30mb", extended: true})))
 app.use((express.urlencoded({ limit: "30mb", extended: true})))
@@ -103,9 +103,9 @@ app.get('/', (req, res) => {
   })
 
 // New code
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+//   });
 
 const DB_URL = process.env.DB_URL
 const PORT = process.env.PORT || 6000

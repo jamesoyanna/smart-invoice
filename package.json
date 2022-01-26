@@ -9,7 +9,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-      "heroku-postbuild": "cd client && npm && npm run build",
     "start": "node index.js"
   },
  "proxy": "http://localhost:8000",

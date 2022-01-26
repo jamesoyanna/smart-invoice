@@ -8,7 +8,7 @@ import pdf from 'html-pdf'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-//import path from 'path';
+import path from 'path';
 //New code
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,8 +25,7 @@ import emailTemplate from './documents/email.js'
 const app = express()
 dotenv.config()
 
-//New code
-//app.use(express.static(path.join(__dirname, "client", "build")));
+
 
 app.use((express.json({ limit: "30mb", extended: true})))
 app.use((express.urlencoded({ limit: "30mb", extended: true})))
@@ -36,6 +35,20 @@ app.use('/invoices', invoiceRoutes)
 app.use('/clients', clientRoutes)
 app.use('/users', userRoutes)
 app.use('/profiles', profile)
+
+
+// new code 
+app.use(
+  express.static(path.join(__dirname, "/client/build"))
+);
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "/client/build", "index.html")
+  );
+});
+
+
 
 // NODEMAILER TRANSPORT FOR SENDING INVOICE VIA EMAIL
 const transporter = nodemailer.createTransport({

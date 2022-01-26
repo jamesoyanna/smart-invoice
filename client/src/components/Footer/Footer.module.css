@@ -1,0 +1,11 @@
+.footerText {
+    border-top: solid 1px rgb(219, 219, 219);
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    padding: 45px;
+    text-align: center;
+    color: #fff;
+    background-color: #0b9444;
+  }
+

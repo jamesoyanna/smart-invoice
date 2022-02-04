@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Field from './Field'
 import useStyles from './styles'
 import styles from './Login.module.css'
-import { GoogleLogin } from 'react-google-login'
+// import { GoogleLogin } from 'react-google-login'
 import {useDispatch} from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import { signup, signin } from '../../actions/auth'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import { createProfile } from '../../actions/profile'
+//import { createProfile } from '../../actions/profile'
 // import Google from './Google'
 import { useSnackbar } from 'react-simple-snackbar'
 import ProgressButton from 'react-progress-button'
@@ -50,25 +50,25 @@ const Login = () => {
         setIsSignup((prevState) => !prevState)
     }
 
-    const googleSuccess = async (res) => {
-        console.log(res)
-        const result = res?.profileObj
-        const token = res?.tokenId
-        dispatch(createProfile({name: result?.name, email: result?.email, userId: result?.googleId, phoneNumber: '', businessName: '', contactAddress: '', logo: result?.imageUrl, website: ''}))
+    // const googleSuccess = async (res) => {
+    //     console.log(res)
+    //     const result = res?.profileObj
+    //     const token = res?.tokenId
+    //     dispatch(createProfile({name: result?.name, email: result?.email, userId: result?.googleId, phoneNumber: '', businessName: '', contactAddress: '', logo: result?.imageUrl, website: ''}))
 
-        try {
-            dispatch({ type: "AUTH", data: {result, token}})
+    //     try {
+    //         dispatch({ type: "AUTH", data: {result, token}})
 
-            window.location.href='/dashboard'
+    //         window.location.href='/dashboard'
             
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    const googleError =(error) => {
-        console.log(error)
-        console.log("Google Sign In was unseccassful. Try again later")
-    }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+    // const googleError =(error) => {
+    //     console.log(error)
+    //     console.log("Google Sign In was unseccassful. Try again later")
+    // }
 
 
     if(user) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import SnackbarProvider from 'react-simple-snackbar'
-import Home from './components/Home/Home';
+//import Home from './components/Home/Home';
 import Invoice from './components/Invoice/Invoice';
 import Invoices from './components/Invoices/Invoices';
 import InvoiceDetails from './components/InvoiceDetails/InvoiceDetails'

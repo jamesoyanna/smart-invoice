@@ -26,7 +26,7 @@ function App() {
      {user && <SideBar />} 
       <Header />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Login} />
           <Route path="/invoice" exact component={Invoice} />
           <Route path="/edit/invoice/:id" exact component={Invoice} />
           <Route path="/invoice/:id" exact component={InvoiceDetails} />

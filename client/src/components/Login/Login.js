@@ -134,7 +134,7 @@ const Login = () => {
                 </ProgressButton>
               </div>
               <div>
-                <GoogleLogin
+                {/* <GoogleLogin
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                   render={(renderProps) => (
                     <button
@@ -148,7 +148,7 @@ const Login = () => {
                   onSuccess={googleSuccess}
                   onFailure={googleError}
                   cookiePolicy="single_host_origin"
-                />
+                /> */}
               </div>
             </div>
             <Grid container justifyContent="flex-end">

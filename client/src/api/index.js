@@ -1,45 +1,40 @@
-import { axiosInstance } from "./config";
-import dotenv from "dotenv";
+import axios from 'axios'
 
-dotenv.config();
+// const API = axios.create({ baseURL: 'http://localhost:5000'})
+const API = axios.create({ baseURL: process.env.REACT_APP_API})
 
- //const API = axios.create({ baseURL: 'http://localhost:5000'})
-//const API = axios.create({ baseURL: process.env.REACT_APP_API})
+API.interceptors.request.use((req) => {
+    if(localStorage.getItem('profile')) {
+        req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+    }
 
-axiosInstance.interceptors.request.use((req) => {
-  if (localStorage.getItem("profile")) {
-    req.headers.authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("profile")).token
-    }`;
-  }
-
-  return req;
-});
+    return req
+})
 
 // export const fetchInvoices =() => API.get('/invoices')
-export const fetchInvoice =(id) => axiosInstance.get(`/invoices/${id}`)
-export const addInvoice =( invoice ) => axiosInstance.post('/invoices', invoice)
-export const updateInvoice = (id, updatedInvoice) => axiosInstance.patch(`/invoices/${id}`, updatedInvoice)
-export const deleteInvoice =(id) => axiosInstance.delete(`/invoices/${id}`)
-export const fetchInvoicesByUser = (searchQuery) => axiosInstance.get(`/invoices?searchQuery=${searchQuery.search}`);
+export const fetchInvoice =(id) => API.get(`/invoices/${id}`)
+export const addInvoice =( invoice ) => API.post('/invoices', invoice)
+export const updateInvoice = (id, updatedInvoice) => API.patch(`/invoices/${id}`, updatedInvoice)
+export const deleteInvoice =(id) => API.delete(`/invoices/${id}`)
+export const fetchInvoicesByUser = (searchQuery) => API.get(`/invoices?searchQuery=${searchQuery.search}`);
 
-export const fetchClient = (id) => axiosInstance.get(`/clients/${id}`);
-export const fetchClients = (page) => axiosInstance.get(`/clients?page=${page}`);
-export const addClient =( client ) => axiosInstance.post('/clients', client)
-export const updateClient = (id, updatedClient) => axiosInstance.patch(`/clients/${id}`, updatedClient)
-export const deleteClient =(id) => axiosInstance.delete(`/clients/${id}`)
-export const fetchClientsByUser = (searchQuery) => axiosInstance.get(`/clients/user?searchQuery=${searchQuery.search}`);
+export const fetchClient = (id) => API.get(`/clients/${id}`);
+export const fetchClients = (page) => API.get(`/clients?page=${page}`);
+export const addClient =( client ) => API.post('/clients', client)
+export const updateClient = (id, updatedClient) => API.patch(`/clients/${id}`, updatedClient)
+export const deleteClient =(id) => API.delete(`/clients/${id}`)
+export const fetchClientsByUser = (searchQuery) => API.get(`/clients/user?searchQuery=${searchQuery.search}`);
 
 
-export const signIn =(formData)=> axiosInstance.post('/users/signin', formData)
-export const signUp =(formData)=> axiosInstance.post('/users/signup', formData)
-export const forgot = (formData) => axiosInstance.post('/users/forgot', formData);
-export const reset = (formData) => axiosInstance.post('/users/reset', formData);
+export const signIn =(formData)=> API.post('/users/signin', formData)
+export const signUp =(formData)=> API.post('/users/signup', formData)
+export const forgot = (formData) => API.post('/users/forgot', formData);
+export const reset = (formData) => API.post('/users/reset', formData);
 
-export const fetchProfilesBySearch = (searchQuery) => axiosInstance.get(`/profiles/search?searchQuery=${searchQuery.search || searchQuery.year || 'none'}`);
-export const fetchProfile = (id) => axiosInstance.get(`/profiles/${id}`)
-export const fetchProfiles = () => axiosInstance.get('/profiles');
-export const fetchProfilesByUser = (searchQuery) => axiosInstance.get(`/profiles?searchQuery=${searchQuery.search}`)
-export const createProfile = (newProfile) => axiosInstance.post('/profiles', newProfile);
-export const updateProfile = (id, updatedProfile) => axiosInstance.patch(`/profiles/${id}`, updatedProfile);
-export const deleteProfile = (id) => axiosInstance.delete(`/profiles/${id}`);
+export const fetchProfilesBySearch = (searchQuery) => API.get(`/profiles/search?searchQuery=${searchQuery.search || searchQuery.year || 'none'}`);
+export const fetchProfile = (id) => API.get(`/profiles/${id}`)
+export const fetchProfiles = () => API.get('/profiles');
+export const fetchProfilesByUser = (searchQuery) => API.get(`/profiles?searchQuery=${searchQuery.search}`)
+export const createProfile = (newProfile) => API.post('/profiles', newProfile);
+export const updateProfile = (id, updatedProfile) => API.patch(`/profiles/${id}`, updatedProfile);
+export const deleteProfile = (id) => API.delete(`/profiles/${id}`);

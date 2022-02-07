@@ -70,7 +70,7 @@ export const forgotPassword = (req,res)=>{
        // NODEMAILER TRANSPORT FOR SENDING POST NOTIFICATION VIA EMAIL
         const transporter = nodemailer.createTransport({
             host: HOST,
-            port : PORT,
+            port : PORT_NUM,
             auth: {
             user: USER,
             pass: PASS
@@ -96,11 +96,11 @@ export const forgotPassword = (req,res)=>{
             user.save().then((result)=>{
                 transporter.sendMail({
                     to:user.email,
-                    from:"Arc Invoice <hello@arcinvoice.com>",
+                    from:"Smart Invoice <hello@smartinvoice.com>",
                     subject:"Password reset request",
                     html:`
                     <p>You requested for password reset from Smart Invoicing application</p>
-                    <h5>Please click this <a href="https://arcinvoice.com/reset/${token}">link</a> to reset your password</h5>
+                    <h5>Please click this <a href="https://smart-invoice-bc1fb.web.app/reset/${token}">link</a> to reset your password</h5>
                     <p>Link not clickable?, copy and paste the following url in your address bar.</p>
                     <p>https://arcinvoice.com/reset/${token}</p>
                     <P>If this was a mistake, just ignore this email and nothing will happen.</P>

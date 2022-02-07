@@ -10,10 +10,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-     "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
-
-
   "keywords": [],
   "author": "james oyanna",
   "license": "ISC",
@@ -31,5 +29,4 @@
   "devDependencies": {
     "nodemon": "^2.0.7"
   }
-  
 }

@@ -37,7 +37,7 @@ app.use('/users', userRoutes)
 app.use('/profiles', profile)
 
 
-// new code 
+// server config
 app.use(
   express.static(path.join(__dirname, "/client/build"))
 );

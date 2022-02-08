@@ -33,6 +33,10 @@ import { saveAs } from 'file-saver';
 import Modal from '../Payments/Modal'
 import PaymentHistory from './PaymentHistory'
 
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const InvoiceDetails = () => {
 
     const location = useLocation()

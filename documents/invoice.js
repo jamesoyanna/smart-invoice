@@ -120,10 +120,10 @@ img {
     <div class="contact">
           <div>
           <h4>SALESFORCE</h4>
-          <p>payments@salesforce.com</p>
+          <p>payments@samrtinvoice.com</p>
           <p>+009 353 1440 3500</p>
-          <p>415 Mission Street Suite 300</p>
-          <p>San Francisco, CA 94105</p>
+          <p>Ikeja</p>
+          <p>Lagos, Nigeria</p>
       </div>
 
       <div>

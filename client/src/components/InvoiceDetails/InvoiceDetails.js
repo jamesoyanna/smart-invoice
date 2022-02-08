@@ -28,14 +28,11 @@ import Spinner from '../Spinner/Spinner'
 import BrandImg from '../../images/brand.png'
 
 import ProgressButton from 'react-progress-button'
-import axios from 'axios';
+import {axiosInstance} from '../../api/config';
 import { saveAs } from 'file-saver';
 import Modal from '../Payments/Modal'
 import PaymentHistory from './PaymentHistory'
 
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const InvoiceDetails = () => {
 
@@ -124,7 +121,7 @@ const InvoiceDetails = () => {
 
   const createAndDownloadPdf = () => {
     setDownloadStatus('loading')
-    axios.post(`${process.env.REACT_APP_API}/create-pdf`, 
+    axiosInstance.post(`/create-pdf`, 
     { name: invoice.client.name,
       address: invoice.client.address,
       phone: invoice.client.phone,
@@ -143,7 +140,7 @@ const InvoiceDetails = () => {
       balanceDue: toCommas(total - totalAmountReceived),
       company: company,
   })
-      .then(() => axios.get(`${process.env.REACT_APP_API}/fetch-pdf`, { responseType: 'blob' }))
+      .then(() => axiosInstance.get(`/fetch-pdf`, { responseType: 'blob' }))
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
 
@@ -156,7 +153,7 @@ const InvoiceDetails = () => {
   const sendPdf = (e) => {
     e.preventDefault()
     setSendStatus('loading')
-    axios.post(`${process.env.REACT_APP_API}/send-pdf`, 
+    axiosInstance.post(`/send-pdf`, 
     { name: invoice.client.name,
       address: invoice.client.address,
       phone: invoice.client.phone,
@@ -173,7 +170,7 @@ const InvoiceDetails = () => {
       status: invoice.status,
       totalAmountReceived: toCommas(totalAmountReceived),
       balanceDue: toCommas(total - totalAmountReceived),
-      link: `${process.env.REACT_APP_URL}/invoice/${invoice._id}`,
+      link: `/invoice/${invoice._id}`,
       company: company,
   })
   // .then(() => console.log("invoice sent successfully"))

@@ -4,8 +4,8 @@
 // REACT_APP_URL = http://localhost:3000
 
 
-// import axios from 'axios';
+import axios from 'axios';
 
-// export const axiosInstance = axios.create({
-//     baseURL: "https://smart-invoice.herokuapp.com"
-// })
+export const axiosInstance = axios.create({
+    baseURL: "https://smart-invoice.herokuapp.com"
+})

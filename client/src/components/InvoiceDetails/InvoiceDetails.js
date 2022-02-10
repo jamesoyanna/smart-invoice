@@ -140,7 +140,7 @@ const InvoiceDetails = () => {
       balanceDue: toCommas(total - totalAmountReceived),
       company: company,
   })
-      .then(() => axiosInstance.get(`/fetch-pdf`, { responseType: 'blob' }))
+      .then(() => axiosInstance.get(`/fetch-pdf`, {responseType: 'blob' }))
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
 

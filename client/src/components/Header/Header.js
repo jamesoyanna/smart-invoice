@@ -14,9 +14,6 @@ import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
-import Logo from '../../images/logo.png';
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -57,8 +54,6 @@ const Header = () => {
         }
         // eslint-disable-next-line
     }, [location, user]) //when location changes, set the user
-
-
 
 
 
@@ -106,15 +101,7 @@ const Header = () => {
 
     if(!user) return (
       <div className={styles.header2}>
-        <img
-          style={{ width: "160px", cursor: "pointer" }}
-          onClick={() => history.push("/")}
-          src={Logo}
-          alt="arc-invoice"
-        />
-        <button onClick={() => history.push("/login")} className={styles.login}>
-          Start for Free
-        </button>
+  
       </div>
     );
     return (

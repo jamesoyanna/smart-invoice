@@ -10,9 +10,7 @@ export const getInvoicesByUser =(searchQuery) => async (dispatch) => {
     const  { data: { data } } = await api.fetchInvoicesByUser(searchQuery)
       dispatch({ type: FETCH_INVOICE_BY_USER, payload: data });
       dispatch({ type: END_LOADING })
-    } catch (error) {
-      console.log(error.response)
-      
+    } catch (error) {      
     }
   }
 
@@ -25,10 +23,8 @@ export const getInvoice = (id) => async (dispatch)=> {
         const { data } = await api.fetchInvoice(id)
         const businessDetails = await api.fetchProfilesByUser({search: user?.result?._id || user?.result?.googleId})
         const invoiceData = {...data, businessDetails}
-        console.log(invoiceData)
         dispatch({ type: GET_INVOICE, payload: invoiceData  })
     } catch (error) {
-        console.log(error)
     }
 }
 

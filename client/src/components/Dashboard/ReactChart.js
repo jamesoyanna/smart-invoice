@@ -18,9 +18,6 @@ const ReactChart =({ paymentHistory }) => {
         return ({year: moment(payment.datePaid).format("MMM Do YY"), population: payment.amountPaid})
       })
 
-
-      console.log(payments)
-
     const data = payments
 
 

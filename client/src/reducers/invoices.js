@@ -30,30 +30,4 @@ const invoices = (state = { isLoading: true, invoices: [] }, action) => {
     }
   };
 
-  export default invoices
-
-
-
-//   const invoices =( state = { invoices: [], }, action ) => {
-//     switch (action.type) {
-//         case FETCH_ALL:
-//             return { ...state, invoices: action.payload }
-
-//         case GET_INVOICE:
-//             return { ...state, invoice: action.payload }
-
-//         case ADD_NEW:
-//             return { ...state, invoices: [...state.invoices, action.payload] }
-
-//         case UPDATE:
-//             return { ...state, invoices: state.invoices.map((invoice) => invoice._id === action.payload ? action.payload : invoice) }
-        
-//         case DELETE: 
-//         return {...state, invoices: state.invoices.filter((invoice) => invoice._id !== action.payload)}
-        
-//         default:
-//             return state;
-//     }
-// }
-
-// export default invoices
+  export default invoices;

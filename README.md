@@ -24,6 +24,11 @@ By clicking on the Send Invoice button, you can send invoice via email to the cu
 
 #### Live view of the application Demo can be found here- [Smart Invoice Landing Page](https://smart-invoice-bc1fb.web.app)
 
+### Login Credentials: 
+##### Username: admin@gmail.com, 
+##### Password: admin123
+
+
 ### Pictorial View of the Application
 
 Landing page display.
@@ -119,8 +124,8 @@ REACT_APP_API = http://localhost:4000
 #### Running the client App
 
   ``` 
-Run yarn start or npm start from the root of the client folder to start a development server. 
-Navigate to http://localhost:3000/. 
+Run yarn start or npm start from the root of the client folder to start the development server. 
+Go to http://localhost:3000 on your browser. Your app should be running.
 The app will automatically reload if you make changes to any of the source files.
   ```
 

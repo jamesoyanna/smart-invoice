@@ -7,5 +7,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-    baseURL: "https://smart-invoice.herokuapp.com"
+    baseURL: "https://smart-invoice-backend.herokuapp.com"
 })
+
+// https://smart-invoice-backend.herokuapp.com
